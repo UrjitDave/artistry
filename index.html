@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dance-AR</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://libs.zappar.com/zappar-aframe/0.3.36/zappar-aframe.js"></script>
+        <script src="https://libs.zappar.com/zappar-threejs/2.0.6/zappar-threejs.js"></script>
+        <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+        <script src="https://unpkg.com/aframe-render-order-component@1.0.0/dist/aframe-render-order-component.min.js"></script> 
+        <!-- Feather - Open source icons: https://feathericons.com -->
+       <script src="https://unpkg.com/feather-icons"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://libs.zappar.com/zappar-sharing/1.1.5/zappar-sharing.min.js"></script>
+        <script src="https://libs.zappar.com/zappar-videorecorder/1.0.1/zappar-videorecorder.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+        <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+        <script src="https://www.webrtc-experiment.com/screenshot.js"></script>
+    </head>
+    <body>
+       <div id="background">
+            <div id="logo"></div> 
+            <div id="hashtag"> </div>
+            <div id="startbtn"></div>
+            <div id="webbtn"></div>
+            <div id="terms-request-txt">All users must read and agree to the Terms and Conditions before using the AR Filter.</div>
+            <div id="terms"><input id="cb" type="checkbox"/>I agree to the <a href="#" id="terms-link">Terms and Conditions</a></div>
+       </div>
+       
+       <div id="terms-popup">
+            <div id="terms-popup-bg"></div>
+            <div id="terms-popup-txt">To proceed, please confirm that you have read and agree to the Terms and Conditions.</div>
+            <div id="terms-popup-cancelBtn"></div> 
+            <div id="Go-to-Read-Btn"></div>
+       </div>
+
+        <div id="terms-pg">
+            <div id="half-bg"></div>
+            <div id="termspg-backBtn"></div>
+            <div id="termspg-Logo"></div>
+            <!-- <div id="termspg-heading">Terms and Conditions</div> -->
+            <div id="terms-moving-txt">
+                <h2>ARTISTRY STUDIO &trade;  SKIN AR Filter Terms and Conditions</h2>
+                <h3>Organiser</h3>
+                <p>The ARTISTRY STUDIOTM SKIN AR Filter (AR Filter) is organised by Amway Malaysia Sdn. Bhd. (Amway).</p>
+          
+                <h3>Personal Data and Privacy Policy</h3>
+                <p>1. Amway will not collect any personal data from users who access and/or participate in the AR Filter.</p>
+          
+                <h3>Assumption of Risks</h3>
+                <p>1. You shall assume all risks and take full responsibility for the choice you have made in accessing, using and/or participating in the AR Filter. You are expected to be aware of your physical fitness, health or medical conditions which may affect your safe participation in the AR Filter. If it is reasonable to do so, you should obtain medical advice prior to participating in the AR Filter.</p>
+                <p>2. Amway assumes no responsibility or liability for any accident, injury, loss or damage of whatsoever nature suffered by a user in connection with the use, access and/participation in the AR Filter.</p>
+                <p>3. You understand that you may film, photograph and record yourself and in doing so, will conduct yourself appropriately in accordance with socially acceptable behaviors.</p>
+                <p>4. You agree that you are responsible for your method and location of filming using the AR Filter and shall only use the AR Filter where safe and secure to do so.</p>
+          
+                <h3>Creation of Unlawful Material</h3>
+                <p>1. Users shall not create any Unlawful Material (defined below) while utilising the AR Filter.</p>
+                <p>2. "Unlawful Material" shall include (but not be limited to), or promote, any sexually explicit ideas or material or any idea or material that is unlawful, harmful, threatening, abusive, harassing, tortuous, defamatory, vulgar, obscene, libelous, invasive of others’ privacy, hateful, racially, ethnically, or otherwise objectionable, infringes any patent, trademark, trade secret, copyright or other proprietary rights of another, infringement of another person’s privacy without their permission, or gives the impression that the material emanates from or are endorsed by us or any other person or entity, if this is not the case.</p>
+                <p>3. Amway reserves the right, in its sole discretion, to delete all unacceptable behaviours in the AR Filter as well as Unlawful Materials and report the user to relevant authorities (including but not limited to the Royal Malaysian Police and the Malaysian Communications and Multimedia Commission). Amway's decision in this matter shall be final and no correspondence shall be entertained.</p>
+          
+                <h3>Other Terms and Conditions </h3>
+                <p>1. In accessing, using and/or participating in the AR Filter, users are taken to have read, understood, and agreed to be bound by the AR Filter Terms & Conditions. Amway reserves the right to vary and/or delete any Terms & Conditions governing the use of the AR Filter at any time without prior notice to any party and the users shall be bound by such variation and/or deletion.</p>
+                <p>2. To the fullest extent provided by law, we will not be liable for any loss or damage caused by a distributed denial-of-service attack, viruses, or other technologically harmful material that may infect your computer equipment, computer programs, data, or other proprietary material due to your use of the AR filter or any services or items obtained through the AR filter or to your downloading of any material posted on it, or on any website linked to it your use of the AR filter, its content, and any services or items obtained through the website is at your own risk. The AR filter, its content, and any services or items obtained through the AR filter are provided on an "as is" and "as available" basis, without any warranties of any kind, either express or implied. Neither Amway nor any person associated with Amway makes any warranty or representation with respect to the completeness, security, reliability, quality, accuracy, or availability of AR filter. Without limiting the foregoing, neither Amway nor anyone associated with the company represents or warrants that the AR filter, its content, or any services or items obtained through the AR filter will be accurate, reliable, error-free, or uninterrupted, that defects will be corrected, that our site or the server that makes it available are free of viruses or other harmful components, or that AR filter or any services or items obtained through the AR filter will otherwise meet your needs or expectations. To the fullest extent provided by law, Amway hereby disclaims all warranties of any kind, whether express or implied, statutory, or otherwise, including but not limited to any warranties of merchantability, non-infringement, and fitness for particular purpose.</p>
+                <p>3. To the fullest extent provided by law, in no event will Amway, its affiliates, or their licensors, service providers, employees, agents, officers, or directors be liable for damages of any kind, under any legal theory, arising out of or in connection with your use, or inability to use, the AR filter, any websites linked to it, any content on the AR filter or such other websites, including any direct, indirect, special, incidental, consequential, or punitive damages, including but not limited to, personal injury, pain and suffering, emotional distress, loss of revenue, loss of profits, loss of business or anticipated savings, loss of use, loss of goodwill, loss of data, and whether caused by tort (including negligence), breach of contract, or otherwise, even if foreseeable.</p>
+                <p>4. In accessing, using and/or participating in the AR Filter, the users agree to hold Amway harmless from any suits, claims, losses, damages and expenses arising from or in connection with the user’s access, use and/or participation of the AR Filter.</p>
+                <p>5. The AR Filter and its entire contents, features, and functionality (including but not limited to all information, software, text, displays, images, video, and audio, and the design, selection, and arrangement thereof) are owned by the Amway, its licensors, or other providers of such material and are protected by copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+                <p>6. Your access, use and/or participation in the AR Filter is also subject to the Vendor and/or related third parties’ terms and conditions found at <a href="https://www.zappar.com/terms/">https://www.zappar.com/terms/.</a></p>
+                <p>7. We reserve the right to withdraw or amend this AR Filter, and any service or material we provide on the AR Filter, in our sole discretion without notice. We will not be liable if for any reason all or any part of the Website is unavailable at any time or for any period. From time to time, we may restrict access to some parts of the AR Filter, or the entire AR Filter,</p>
+                <p>8. We may revise and update these Terms and Conditions from time to time in our sole discretion. All changes are effective immediately when we post them, and apply to all access to and use of the AR Filter thereafter.</p>
+            </div>
+            <!-- <div id="agreed-btn"></div> -->
+        </div>
+
+       <div id="background-choose">
+            <div id="logo-choose"></div>             
+            <div id="txt">Choose Your Dance Partner</div>
+            <div id="Alysaa-btn"> </div>
+            <div id="Nyokki-btn"> </div>
+            <div id="Alysaa-Nyokki"></div>
+            <div id="Show-your-moves"> </div>
+            <div id="Dance-with-btn"> </div>
+        </div>
+        
+        <div id="record-dance-ui">
+            <div id="logo-record"></div>             
+            <div id="backBtn"> </div>
+            <div id="Thumbnail"> </div>
+            <!-- <div id="Thumbnail2"> </div> -->
+            <div id="txt-name">Alyssa</div>
+            <div id="StartRecordBtn"></div>
+            <div id="LearntheDanceBtn"></div>
+            <div id="HowdoesitworksBtn"></div>
+        </div>    
+        
+        <div id="background-learn">
+            <div id="logo-learn"></div>             
+            <div id="backBtn-learn" > </div>
+            <div id="txt-learn">Learn the Dance</div>
+            <div id="video-learn">
+                <video id="learn-vid" playsinline></video>
+            </div>
+            <div id="PlayBtnImg"></div>
+            <div id="StartRecordBtn-learn"></div>
+            <div id="HowdoesitworksBtn-learn"></div>
+       </div>
+
+       <div id="background-works">
+            <div id="logo-works"></div> 
+            <div id="backBtn-works"></div>
+            <div id="text-works"> How does it work ?</div>
+            <div id="text-list">
+                <p id="works-txt1">1. Tap “Ok” to allow the app to access your camera.</p>
+                <p id="works-txt2">2. Point your camera at a flat surface for the virtual dance partner to appear.</p>
+                <p id="works-txt3">3. Move the chosen dance partner on the screen to adjust with your surroundings.</p>
+                <p id="works-txt4">4. Please kindly take three steps back from the device.</p>
+                <p id="works-txt5">5. Press record to start and stop to stop recording.</p>
+                <p id="works-txt6">6. The 15-seconds recording limit will stop automatically if exceeded the time limit.</p>
+                <p id="works-txt7">7. Share the dance video on social media with your friends after the recording is completed.</p>
+            </div>
+                
+            
+        </div>
+
+        <div id="background-Record-Top">
+            <div id="Logo-recordscr"></div>             
+            <div id="backBtn-Record"> </div> 
+        </div>
+        <div id="countdowntimer">
+            <video id="countdown" class="timervideo" muted playsinline>
+               <source src="Assets/Countdown.mov" type='video/mp4; codecs="hvc1"'>
+               <source src="Assets/Countdown.webm" type="video/webm">
+          </video>
+        </div>
+        <div id="background-Record-Bottom">
+            <div id="zappar-placement-ui">Tap here to place the object</div>
+            <div id="zappar-placement-ui-2">Tap here to place the object</div>
+            <div id="Timer-Bottom">00:00</div>
+            <div id="Bottom-white-bg"></div>
+            <div id="Bubble-btn"></div>
+            <div id="Record-btn"></div>
+            <div id="Stop-Record-btn"></div>
+            <div id="camera-flip"></div>
+            <div id="txt-record">Tap button to start recording</div>
+       </div>
+       <div id="Share-ui">
+            <div id="backBtn-Share"></div>
+            <div id="logo-share"></div>
+            <div id="share-txt1">Recording Complete</div>
+            <div id="share-vid-div">
+                <video id="share-vid" playsinline></video>
+            </div>
+            <div id="share-vid-playBtn"></div>
+            <div id="share-txt2">Show off your moves to your friends</div>
+            <div id="share-btn"></div>
+            <div id="save-btn"></div>
+            <div id="share-web-btn"></div>
+        </div>
+
+        <a-scene loading-screen="backgroundColor: #344A60" device-orientation-permission-ui="enabled: false" gesture-detector>
+            <!-- Ask user for camera permissions, display some text if permission is denied -->
+            <!-- <a-entity zappar-permissions-ui id="permissions"></a-entity> -->
+            <!-- shows a full-page dialog that informs the user they're using an unsupported browser -->
+            <a-entity zappar-compatibility-ui id="compatibility"></a-entity>
+    
+            <!-- PRE-LOAD OUR ASSETS FOR PERFORMANCE -->
+            <a-assets>
+                <video id="nyokki" preload="auto" src="Assets/Nyokki_Vid.mp4" crossorigin="anonymous" playsinline></video>
+                <video id="alysaa" preload="auto" src="Assets/Alysaa_Vid.mp4" crossorigin="anonymous" playsinline></video>
+                <video id="both" preload="auto" src="Assets/Alysaa_Nyokki_Vid.mp4" crossorigin="anonymous" playsinline></video>
+                <!-- <video id="countdown" preload="auto" src="Assets/Countdown.mp4" crossorigin="anonymous" playsinline></video> -->
+                <video id="bubbles" preload="auto" src="Assets/Bubbles.mp4" crossorigin="anonymous" playsinline></video>
+
+                <!-- Learn Videos -->
+                <video id="Alyssa-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Alyssa.mp4" crossorigin="anonymous" playsinline></video>
+                <video id="Nyokki-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Nyokki.mp4" crossorigin="anonymous" playsinline></video>
+                <video id="Alyssa-Nyokki-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Alyssa-Nyokki.mp4" crossorigin="anonymous" playsinline></video>
+                <!-- <img id="AlyssaImgBtn" src="assets/Alyssa-Btn.png"/>
+                -->
+            </a-assets>
+
+            <a-camera id="camera" zappar-camera="user-facing:true;" look-controls-enabled="false"   cursor="rayOrigin: mouse; fuse: false;" raycaster="objects: .interactive" />
+        <a-entity zappar-instant="placement-mode: true" id="my-instant-tracker" visible="false">    
+            <a-entity id="videoGroup" position="0 0 -5" scale="3 3 3" gesture-handler="minScale: 0.25; maxScale: 10">
+                <!-- <a-plane id="Countdownvid" position="0 0 0.2"  width='0.9' height='1.6'></a-plane> -->
+                <!-- Add our video -->
+                <a-plane id="arvid"
+                click-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>
+                <!-- <a-entity id="buttons" position="0 0 0"> -->
+                <!-- <a-plane id="play" class="interactive" play  position="0 0 0.01" width='0.5' height='0.5'  material="src:#play-circle; opacity:1; transparent:true;"> </a-plane> -->
+                <a-plane id="bubblesvid" material="shader: chromakey; src: #bubbles; color: 0 0 0;"
+                click-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> 
+            </a-entity>
+        </a-entity>
+
+        <a-entity zappar-instant="placement-mode: true" id="my-instant-tracker-2" visible="false">    
+            <a-entity id="videoGroup2" position="0 0 -5" scale="3 3 3" gesture-handler="minScale: 0.25; maxScale: 10">
+                <!-- Add our video -->
+                <a-plane id="arvid2"
+                click-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>               
+                <a-plane id="bubblesvid2" material="shader: chromakey; src: #bubbles; color: 0 0 0;"
+                click-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> 
+            </a-entity>
+        </a-entity>
+            <a-entity zappar-face id="my-face-tracker">
+                <a-entity zappar-head-mask="face: #my-face-tracker;"></a-entity>
+            
+                <!-- OTHER 3D CONTENT GOES HERE -->
+            </a-entity>
+  
+
+
+            <a-plane 
+            id="ground"
+              height="2000" 
+              width="2000" 
+              rotation="-90 0 0">
+            </a-plane>
+        </a-scene> <!-- END SCENE -->
+       
+        <script src="./gestures.js"></script>
+        <script src="./audio.js"></script>
+        <script src="./main.js"></script>
+    </body>
+</html>
