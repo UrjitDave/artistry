@@ -6,7 +6,7 @@ let isBubble = true;
 let mins =0;
 let seconds =0;
 let timex;
-let isOrientation = 'front';
+let isOrientation = 'back';
 let playing = false
 const clickAnchor = (properties) => {
     const anchor = document.createElement('a')
@@ -283,7 +283,8 @@ document.getElementById('StartRecordBtn').addEventListener('click', (e) => {
         const system = document.querySelector("a-scene").systems["zappar-camera"];
         system.permissionGranted = granted;
         if (granted) {
-            system.camera.start(system.userFacing);
+            // system.camera.start(system.userFacing);
+            system.camera.start();
             setTimeout(placement(), 2000);
             return;
         }else {
@@ -320,7 +321,8 @@ document.getElementById('StartRecordBtn-learn').addEventListener('click', (e) =>
         const system = document.querySelector("a-scene").systems["zappar-camera"];
         system.permissionGranted = granted;
         if (granted) {
-            system.camera.start(system.userFacing);
+            // system.camera.start(system.userFacing);
+            system.camera.start();
             setTimeout(placement(), 2000);
             return;
         }else {

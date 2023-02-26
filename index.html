@@ -15,12 +15,14 @@
         <script src="https://unpkg.com/aframe-render-order-component@1.0.0/dist/aframe-render-order-component.min.js"></script> 
         <!-- Feather - Open source icons: https://feathericons.com -->
        <script src="https://unpkg.com/feather-icons"></script>
+       <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-face-aframe.prod.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
         <script src="https://libs.zappar.com/zappar-sharing/1.1.5/zappar-sharing.min.js"></script>
         <script src="https://libs.zappar.com/zappar-videorecorder/1.0.1/zappar-videorecorder.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
         <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
         <script src="https://www.webrtc-experiment.com/screenshot.js"></script>
+        
     </head>
     <body>
        <div id="background">
@@ -181,6 +183,7 @@
                 <video id="Alyssa-Nyokki-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Alyssa-Nyokki.mp4" crossorigin="anonymous" playsinline></video>
                 <!-- <img id="AlyssaImgBtn" src="assets/Alyssa-Btn.png"/>
                 -->
+                <a-asset-item id="headModel" src="Assets/headOccluder.glb"></a-asset-item>
             </a-assets>
 
             <a-camera id="camera" zappar-camera="user-facing:true;" look-controls-enabled="false"   cursor="rayOrigin: mouse; fuse: false;" raycaster="objects: .interactive" />
@@ -207,7 +210,9 @@
             </a-entity>
         </a-entity>
             <a-entity zappar-face id="my-face-tracker">
-                <a-entity zappar-head-mask="face: #my-face-tracker;"></a-entity>
+                <a-entity zappar-head-mask="face: #my-face-tracker;">
+                    <a-gltf-model mindar-face-occluder position="0 0 0.15" scale="0.065 0.065 0.065" src="#headModel"></a-gltf-model>
+                </a-entity>
             
                 <!-- OTHER 3D CONTENT GOES HERE -->
             </a-entity>
