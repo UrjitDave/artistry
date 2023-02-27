@@ -9,10 +9,11 @@
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" href="./style.css">
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-        <script src="https://libs.zappar.com/zappar-aframe/0.3.36/zappar-aframe.js"></script>
+        <script src="https://libs.zappar.com/zappar-aframe/2.0.0/zappar-aframe.js"></script>
         <script src="https://libs.zappar.com/zappar-threejs/2.0.6/zappar-threejs.js"></script>
         <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
         <script src="https://unpkg.com/aframe-render-order-component@1.0.0/dist/aframe-render-order-component.min.js"></script> 
+        <script src="http://cdn.8thwall.com/web/xrextras/xrextras.js"></script> 
         <!-- Feather - Open source icons: https://feathericons.com -->
        <script src="https://unpkg.com/feather-icons"></script>
        <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-face-aframe.prod.js"></script>
@@ -139,8 +140,8 @@
           </video>
         </div>
         <div id="background-Record-Bottom">
-            <div id="zappar-placement-ui">Tap here to place the object</div>
-            <div id="zappar-placement-ui-2">Tap here to place the object</div>
+            <div id="zappar-placement-ui"></div>
+            <div id="zappar-placement-ui-2"></div>
             <div id="Timer-Bottom">00:00</div>
             <div id="Bottom-white-bg"></div>
             <div id="Bubble-btn"></div>
@@ -192,21 +193,21 @@
                 <!-- <a-plane id="Countdownvid" position="0 0 0.2"  width='0.9' height='1.6'></a-plane> -->
                 <!-- Add our video -->
                 <a-plane id="arvid"
-                click-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>
+                xrextras-hold-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>
                 <!-- <a-entity id="buttons" position="0 0 0"> -->
                 <!-- <a-plane id="play" class="interactive" play  position="0 0 0.01" width='0.5' height='0.5'  material="src:#play-circle; opacity:1; transparent:true;"> </a-plane> -->
                 <a-plane id="bubblesvid" material="shader: chromakey; src: #bubbles; color: 0 0 0;"
-                click-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> 
+                xrextras-hold-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> 
             </a-entity>
         </a-entity>
 
         <a-entity zappar-instant="placement-mode: true" id="my-instant-tracker-2" visible="false">    
-            <a-entity id="videoGroup2" position="0 0 -5" scale="3 3 3" gesture-handler="minScale: 0.25; maxScale: 10">
+            <a-entity id="videoGroup2" position="2.5 0 -5" scale="3 3 3" gesture-handler="minScale: 0.25; maxScale: 10">
                 <!-- Add our video -->
                 <a-plane id="arvid2"
-                click-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>               
+                xrextras-hold-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>               
                 <a-plane id="bubblesvid2" material="shader: chromakey; src: #bubbles; color: 0 0 0;"
-                click-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> 
+                xrextras-hold-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> 
             </a-entity>
         </a-entity>
             <a-entity zappar-face id="my-face-tracker">

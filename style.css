@@ -929,7 +929,7 @@ body {
     display: none;
     position: absolute;
     left: calc(50% - 100px);
-    bottom: 24vh;
+    bottom: 26vh;
     font-family: Inter;
     color: #fff;
     border-radius: 4px;

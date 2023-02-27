@@ -8,6 +8,8 @@ let seconds =0;
 let timex;
 let isOrientation = 'back';
 let playing = false
+const placementUI = document.getElementById("zappar-placement-ui");
+const placementUI2 = document.getElementById('zappar-placement-ui-2');
 const clickAnchor = (properties) => {
     const anchor = document.createElement('a')
     Object.assign(anchor, properties)
@@ -234,16 +236,20 @@ document.getElementById('LearntheDanceBtn').addEventListener('click', (e) => {
                     document.getElementById ('learn-vid').setAttribute('src','./Assets/Dance-Vid-Alyssa.mp4');
                     const  v = document.getElementById ('learn-vid');
                     autoPlayCheck(v);
+                    
+                   
                 }
                 else if(character == 'Nyokki'){
                     document.getElementById ('learn-vid').setAttribute('src','./Assets/Dance-Vid-Nyokki.mp4');
                     const  v = document.getElementById ('learn-vid');
                     autoPlayCheck(v);
+                    
                 }
                 else if(character == 'Both'){
                     document.getElementById ('learn-vid').setAttribute('src','./Assets/Dance-Vid-Alyssa-Nyokki.mp4');
                     const  v = document.getElementById ('learn-vid');
                     autoPlayCheck(v);
+                    
                 }
                 else{
                      document.getElementById ('learn-vid').setAttribute('src','./Assets/Dance-Vid-Alyssa-Nyokki.mp4');
@@ -285,7 +291,7 @@ document.getElementById('StartRecordBtn').addEventListener('click', (e) => {
         if (granted) {
             // system.camera.start(system.userFacing);
             system.camera.start();
-            setTimeout(placement(), 2000);
+            setTimeout(placement(), 4000);
             return;
         }else {
             ZapparThree.permissionDeniedUI();
@@ -323,7 +329,7 @@ document.getElementById('StartRecordBtn-learn').addEventListener('click', (e) =>
         if (granted) {
             // system.camera.start(system.userFacing);
             system.camera.start();
-            setTimeout(placement(), 2000);
+            setTimeout(placement(), 4000);
             return;
         }else {
             ZapparThree.permissionDeniedUI();
@@ -338,13 +344,41 @@ document.getElementById('StartRecordBtn-learn').addEventListener('click', (e) =>
 function placement(){
     let myInstantTracker = document.getElementById("my-instant-tracker");
     let myInstantTracker2 = document.getElementById("my-instant-tracker-2");
-    const placementUI = document.getElementById("zappar-placement-ui");
+    
     placementUI.style.display = 'block';
     myInstantTracker.setAttribute('visible',true);
+    // placementUI.addEventListener("click", () => {
+    //     myInstantTracker.setAttribute("zappar-instant", "placement-mode: false;");
+    //     placementUI.style.display ='none';
+    // })
+    let hasPlaced = false;
     placementUI.addEventListener("click", () => {
-        myInstantTracker.setAttribute("zappar-instant", "placement-mode: false;");
+        // myInstantTracker.setAttribute("zappar-instant", "placement-mode: false;");
+        // placementUI.style.display ='none';
+        if (hasPlaced) {
+            // ...reset hasPlaced to false...
+            hasPlaced = false;
+            // ...set placement mode to true on our instant tracker...
+            myInstantTracker.setAttribute("zappar-instant", "placement-mode: true");
+            // ...replace the text on the placement button...
+           
+            
+            // ...show our hotspot again...
+            // hotspot.setAttribute("visible", "true");
+            return;
+        }
+        // ...otherwise, if at this point we have NOT already placed the anchor,
+        // set hasPlaced to true
+        hasPlaced = true;
+        // Set placement mode to false on our instant tracker
+        myInstantTracker.setAttribute("zappar-instant", "placement-mode: false");
+        // ...replace the text on the placement button...
+        // placementUI.innerHTML = "Tap here to pick up";
+        // ...hide our hotspot...
+        // hotspot.setAttribute("visible", "false");
         placementUI.style.display ='none';
     })
+
     let myFaceTracker = document.getElementById("my-face-tracker");
 
     myFaceTracker.addEventListener("zappar-visible", () => {
@@ -356,24 +390,31 @@ function placement(){
         console.log("Face is no longer visible");
         myFaceTracker.firstElementChild.setAttribute('visible', false)
     });
-   
+   setTimeout((e)=>{
     const ARvideo = document.getElementById('arvid');
     ARvideo.removeAttribute('material');
         if(character == 'Alysaa'){
+            placementUI.innerHTML = "Tap here to place Alysaa";
             ARvideo.setAttribute('material', 'shader: chromakey; src: #alysaa; color: 0.1 0.9 0.2;');
             const  v = document.getElementById('alysaa');
             autoPlayCheck(v);
             autoPlayCheck(document.getElementById('bubbles'));
             ARvideo.setAttribute('visible','true');
+            
         }
         else if(character == 'Nyokki'){
+            placementUI.innerHTML = "Tap here to place Nyokki";
             ARvideo.setAttribute('material', 'shader: chromakey; src: #nyokki; color: 0.1 0.9 0.2;');
             const  v = document.getElementById('nyokki');
             autoPlayCheck(v);
             autoPlayCheck(document.getElementById('bubbles'));
             ARvideo.setAttribute('visible','true');
+            
         }
         else if(character == 'Both'){
+            placementUI.innerHTML = "Tap here to place Alysaa";
+            placementUI2.innerHTML = "Tap here to place Nyokki";
+
             ARvideo.setAttribute('material', 'shader: chromakey; src: #alysaa; color: 0.1 0.9 0.2;');
             const  v = document.getElementById('alysaa');
             autoPlayCheck(v);
@@ -383,7 +424,7 @@ function placement(){
             autoPlayCheck(document.getElementById('bubbles'));
             ARvideo.setAttribute('visible','true');
             document.getElementById('arvid2').setAttribute('visible','true');
-            const placementUI2 = document.getElementById("zappar-placement-ui-2");
+            
             placementUI2.style.display = 'block';
             myInstantTracker2.setAttribute('visible',true);
             placementUI2.addEventListener("click", () => {
@@ -394,6 +435,8 @@ function placement(){
         else{
             ARvideo.setAttribute('visible',false);
         }
+   }, 1000)
+    
 
 }
 
@@ -514,12 +557,9 @@ document.getElementById('Record-btn').addEventListener('click', () => {
                     document.getElementById('bubbles').play();
                 }
                 else if(character == 'Both'){
-                    const bigBuckBunnyVideo = document.getElementById('alysaa');
-                    bigBuckBunnyVideo.muted = false;
-                    bigBuckBunnyVideo.play();
-                    const bigBuckBunnyVideo2 = document.getElementById('nyokki');
-                    bigBuckBunnyVideo2.muted = false;
-                    bigBuckBunnyVideo2.play();
+                    document.getElementById('alysaa').muted = true;
+                    document.getElementById('alysaa').play();
+                    document.getElementById('nyokki').play();
                     document.getElementById('bubbles').play();
                 }
                 else{
@@ -595,8 +635,8 @@ document.getElementById('Record-btn').addEventListener('click', () => {
                                   lastModified: Date.now(),
                                 })
                             const shareObject = {
-                                  title: 'Artristy WebAR',
-                                  text: '#IamGlenGLow',
+                                  title: '',
+                                  text: '',
                                   files: [fileToInclude],
                                 }
                             isRecording = false;
@@ -605,13 +645,17 @@ document.getElementById('Record-btn').addEventListener('click', () => {
                             audioStream.stop();
                             canvasStream.stop();
                             document.getElementById('share-btn').addEventListener('click', (e)=>{
-
-                                if (navigator.share && navigator.canShare({ files: [fileToInclude] })) {
-                                    navigator.share(shareObject)
-                                        .then(() => console.log('Successful share'))
-                                        .catch((error) => console.log('Error sharing', error));
-                                } else {
-                                    alert("Web Share API is not supported in your browser.")
+                                try{
+                                    if (navigator.share && navigator.canShare({ files: [fileToInclude] })) {
+                                        navigator.share(shareObject)
+                                            .then(() => console.log('Successful share'))
+                                            .catch((error) => console.log('Error sharing', error));
+                                    } else {
+                                        alert("Web Share API is not supported in your browser.")
+                                    }
+                                }
+                                catch{
+                                    alert("Sharing is not supported in your browser")
                                 }
                             });
                             document.getElementById('save-btn').addEventListener('click', (e) => {
