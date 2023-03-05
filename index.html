@@ -13,9 +13,7 @@
         <script src="https://libs.zappar.com/zappar-threejs/2.0.6/zappar-threejs.js"></script>
         <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
         <script src="https://unpkg.com/aframe-render-order-component@1.0.0/dist/aframe-render-order-component.min.js"></script> 
-        <script src="http://cdn.8thwall.com/web/xrextras/xrextras.js"></script> 
-        <!-- Feather - Open source icons: https://feathericons.com -->
-       <script src="https://unpkg.com/feather-icons"></script>
+        <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js"></script>
        <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-face-aframe.prod.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
         <script src="https://libs.zappar.com/zappar-sharing/1.1.5/zappar-sharing.min.js"></script>
@@ -23,7 +21,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
         <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
         <script src="https://www.webrtc-experiment.com/screenshot.js"></script>
-        
+        <!-- <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> -->
+
     </head>
     <body>
        <div id="background">
@@ -31,7 +30,7 @@
             <div id="hashtag"> </div>
             <div id="startbtn"></div>
             <div id="webbtn"></div>
-            <div id="terms-request-txt">All users must read and agree to the Terms and Conditions before using the AR Filter.</div>
+            <div id="terms-request-txt">This web AR is compatible with both iOS 8.0 and Android 4.0 devices up to the latest version. <br> <br> All users must read and agree to the Terms and Conditions before using the AR Filter.</div>
             <div id="terms"><input id="cb" type="checkbox"/>I agree to the <a href="#" id="terms-link">Terms and Conditions</a></div>
        </div>
        
@@ -84,7 +83,7 @@
             <div id="txt">Choose Your Dance Partner</div>
             <div id="Alysaa-btn"> </div>
             <div id="Nyokki-btn"> </div>
-            <div id="Alysaa-Nyokki"></div>
+            <!-- <div id="Alysaa-Nyokki"></div> -->
             <div id="Show-your-moves"> </div>
             <div id="Dance-with-btn"> </div>
         </div>
@@ -133,12 +132,12 @@
             <div id="Logo-recordscr"></div>             
             <div id="backBtn-Record"> </div> 
         </div>
-        <div id="countdowntimer">
+        <!-- <div id="countdowntimer">
             <video id="countdown" class="timervideo" muted playsinline>
                <source src="Assets/Countdown.mov" type='video/mp4; codecs="hvc1"'>
                <source src="Assets/Countdown.webm" type="video/webm">
           </video>
-        </div>
+        </div> -->
         <div id="background-Record-Bottom">
             <div id="zappar-placement-ui"></div>
             <div id="zappar-placement-ui-2"></div>
@@ -160,7 +159,7 @@
             <div id="share-vid-playBtn"></div>
             <div id="share-txt2">Show off your moves to your friends</div>
             <div id="share-btn"></div>
-            <div id="save-btn"></div>
+            <!-- <div id="save-btn"></div> -->
             <div id="share-web-btn"></div>
         </div>
 
@@ -172,51 +171,60 @@
     
             <!-- PRE-LOAD OUR ASSETS FOR PERFORMANCE -->
             <a-assets>
-                <video id="nyokki" preload="auto" src="Assets/Nyokki_Vid.mp4" crossorigin="anonymous" playsinline></video>
-                <video id="alysaa" preload="auto" src="Assets/Alysaa_Vid.mp4" crossorigin="anonymous" playsinline></video>
-                <video id="both" preload="auto" src="Assets/Alysaa_Nyokki_Vid.mp4" crossorigin="anonymous" playsinline></video>
-                <!-- <video id="countdown" preload="auto" src="Assets/Countdown.mp4" crossorigin="anonymous" playsinline></video> -->
-                <video id="bubbles" preload="auto" src="Assets/Bubbles.mp4" crossorigin="anonymous" playsinline></video>
+                <video id="nyokki" preload="auto" src="Assets/Nyokki_Vid.mp4#t=0.01" crossorigin="anonymous" playsinline></video>
+                <video id="alysaa" preload="auto" src="Assets/Alysaa_Vid.mp4#t=0.01" crossorigin="anonymous" playsinline></video>
+                <!-- <video id="both" preload="auto" src="Assets/Alysaa_Nyokki_Vid.mp4#t=0.01" crossorigin="anonymous" playsinline></video> -->
+                <video id="countdown-test" preload="auto" src="Assets/Countdown.mp4#t=0.01" crossorigin="anonymous" playsinline></video>
+                <video id="bubbles" preload="auto" src="Assets/BubblesRed.mp4" crossorigin="anonymous" playsinline></video>
 
                 <!-- Learn Videos -->
-                <video id="Alyssa-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Alyssa.mp4" crossorigin="anonymous" playsinline></video>
-                <video id="Nyokki-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Nyokki.mp4" crossorigin="anonymous" playsinline></video>
-                <video id="Alyssa-Nyokki-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Alyssa-Nyokki.mp4" crossorigin="anonymous" playsinline></video>
+                <video id="Alyssa-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Alyssa.mp4#t=0.1" crossorigin="anonymous" playsinline></video>
+                <video id="Nyokki-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Nyokki.mp4#t=0.1" crossorigin="anonymous" playsinline></video>
+                <!-- <video id="Alyssa-Nyokki-vid" preload="auto" loop="true" src="Assets/Dance-Vid-Alyssa-Nyokki.mp4#t=0.1" crossorigin="anonymous" playsinline></video> -->
                 <!-- <img id="AlyssaImgBtn" src="assets/Alyssa-Btn.png"/>
                 -->
-                <a-asset-item id="headModel" src="Assets/headOccluder.glb"></a-asset-item>
+                <img id="hotspotTexture" src="./Assets/hotspot.png">
+                <!-- <img id="bubblesgif" src="./Assets/Bubbles.gif "> -->
             </a-assets>
 
-            <a-camera id="camera" zappar-camera="user-facing:true;" look-controls-enabled="false"   cursor="rayOrigin: mouse; fuse: false;" raycaster="objects: .interactive" />
-        <a-entity zappar-instant="placement-mode: true" id="my-instant-tracker" visible="false">    
-            <a-entity id="videoGroup" position="0 0 -5" scale="3 3 3" gesture-handler="minScale: 0.25; maxScale: 10">
+            <a-camera id="camera" zappar-camera="user-facing:false;" look-controls-enabled="false"   cursor="rayOrigin: mouse; fuse: false;" raycaster="objects: .interactive">
+                <a-plane id="bubblesvid" material="shader: chromakey; src: #bubbles; color: 0.212 0.498 0.549"
+                 position="0 0 -4" width='4.5' height='8.0' visible="false"> </a-plane>
+                 <!-- <a-entity id="bubblesvid" position="0 0 -4" rotation="0 0 0" geometry="primitive: plane; height: 4.5; width: 8;" material="shader:gif;src:#bubblesgif;alphaTest:0.5;">
+                 </a-entity> -->
+                <a-plane id="countvid" material="shader: chromakey; src: #countdown-test; color: 0 0 0;"
+                         position="0 0 -3" scale="0.6 0.6 0.6" width='0.9' height='1.6' visible="false"></a-plane>
+            </a-camera>
+        <a-entity zappar-instant="placement-mode: true" id="my-instant-tracker" visible="">
+            <a-entity id="videoGroup" position="0 0 -3" scale="3 3 3" gesture-handler="minScale: 0.25; maxScale: 10">
                 <!-- <a-plane id="Countdownvid" position="0 0 0.2"  width='0.9' height='1.6'></a-plane> -->
                 <!-- Add our video -->
-                <a-plane id="arvid"
-                xrextras-hold-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>
+                <a-plane id="arvid"  class="interactive"
+                click-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>
                 <!-- <a-entity id="buttons" position="0 0 0"> -->
                 <!-- <a-plane id="play" class="interactive" play  position="0 0 0.01" width='0.5' height='0.5'  material="src:#play-circle; opacity:1; transparent:true;"> </a-plane> -->
-                <a-plane id="bubblesvid" material="shader: chromakey; src: #bubbles; color: 0 0 0;"
-                xrextras-hold-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> 
+                
             </a-entity>
+            <a-entity id="hotspot" geometry="primitive:plane;" scale="1.7 1.7 1.7" position="0 0.001 0" rotation="-90 0 0" material="src: #hotspotTexture; transparent: true; alphaTest: 0.5"></a-entity>
         </a-entity>
 
         <a-entity zappar-instant="placement-mode: true" id="my-instant-tracker-2" visible="false">    
-            <a-entity id="videoGroup2" position="2.5 0 -5" scale="3 3 3" gesture-handler="minScale: 0.25; maxScale: 10">
+            <a-entity id="videoGroup2" position="0 0 -5" scale="3 3 3" gesture-handler="minScale: 0.25; maxScale: 10">
                 <!-- Add our video -->
-                <a-plane id="arvid2"
-                xrextras-hold-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>               
-                <a-plane id="bubblesvid2" material="shader: chromakey; src: #bubbles; color: 0 0 0;"
-                xrextras-hold-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> 
+                <a-plane id="arvid2" class="interactive"
+                click-drag position="0 0 0" width='0.9' height='1.6' visible="false"></a-plane>               
+                <!-- <a-plane id="bubblesvid2" class="interactive" material="shader: chromakey; src: #bubbles; color: 0 0 0;"
+                click-drag position="0 -2 -3" width='4.5' height='8.0'> </a-plane> -->
             </a-entity>
+            <a-entity id="hotspot2" geometry="primitive:plane;" scale="1.7 1.7 1.7" position="0 0.001 0" rotation="-90 0 0" material="src: #hotspotTexture; transparent: true; alphaTest: 0.5"></a-entity>
         </a-entity>
-            <a-entity zappar-face id="my-face-tracker">
+            <!-- <a-entity zappar-face id="my-face-tracker">
                 <a-entity zappar-head-mask="face: #my-face-tracker;">
                     <a-gltf-model mindar-face-occluder position="0 0 0.15" scale="0.065 0.065 0.065" src="#headModel"></a-gltf-model>
                 </a-entity>
             
-                <!-- OTHER 3D CONTENT GOES HERE -->
-            </a-entity>
+                
+            </a-entity> -->
   
 
 

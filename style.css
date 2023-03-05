@@ -1,3 +1,17 @@
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    /* html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display:none;
+    } */
+
+  }
 @font-face {
     font-family: InterFont;
     src: url('Assets/Inter.ttf');
@@ -87,7 +101,7 @@ body {
     width: 85vw;
     height: 15vh;
     left: 7.5vw;
-    top: 70vh;
+    top: 80vh;
     font-size: 0.8em;
     font-family: InterFont;
     color: darkblue;
@@ -251,6 +265,7 @@ body {
     background-image: url('Assets/bg-choose.png');
     background-position:center;
     background-size: cover;
+    overflow: auto;
 }
 
 #logo-choose{
@@ -507,23 +522,25 @@ body {
     text-align: center;
 }
 
-#video-learn{
-    position:absolute;
+#video-learn {
+    position: absolute;
     display: block;
     width: 50vw;
-    height:53vh;
-    left: 0vw;
-    top:19vh;
+    height: 40vh;
+    left: 25vw;
+    top: 19vh;
+    /* border-radius: 60px; */
 }
 
-#learn-vid{
-    position:absolute;
-    display: block;
-    width: 100vw;
-    height: 45vh;
+#learn-vid {
+    /* position: absolute; */
+    /* display: block; */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
     top: 0vh;
     left: 0vw;
-
+    border-radius: 20px;
 }
 
 #PlayBtnImg{
@@ -531,7 +548,7 @@ body {
     position: absolute;
     display: block;
     width: 19vw;
-    height: 8vh;
+    height: 12vh;
     top: 40vh;
     left: 40vw;
     background-image: url('./Assets/play-Btn.png');
@@ -565,7 +582,7 @@ body {
 
 /* How does it works CSS */
 #background-works{
-    z-index: 996;
+    z-index: 998;
     position: absolute;
     display: none;
     width: 100%;
@@ -695,7 +712,7 @@ body {
     width: 80vw;
     height: 13vw;
     left: 10vw;
-    top: 80vh;
+    top: 75vh;
     background-image: url('Assets/Web-Btn.png');
     background-position: center;
     background-size: cover;
@@ -730,29 +747,30 @@ body {
 }
 
 #share-vid-div{
-    position:absolute;
+    position: absolute;
     display: block;
-    width: 100vw;
-    height:41vh;
-    left: 0vw;
-    top:20vh;
+    width: 50vw;
+    height: 40vh;
+    left: 25vw;
+    top: 19vh;
 }
 
 #share-vid{
-    position:absolute;
-    display: block;
+     /* position: absolute; */
+    /* display: block; */
+    object-fit: cover;
     width: 100%;
     height: 100%;
     top: 0vh;
     left: 0vw;
+    border-radius: 20px;
 }
-
 #share-vid-playBtn{
     z-index: 997;
     position: absolute;
     display: block;
     width: 19vw;
-    height: 8vh;
+    height: 12vh;
     top: 35vh;
     left: 40vw;
     background-image: url('./Assets/play-Btn.png');
@@ -919,20 +937,20 @@ body {
     position: absolute;
     left: calc(50% - 100px);
     bottom: 24vh;
-    font-family: Inter;
-    color: #fff;
+    font-family: InterFont;
+    color:  #efefef;
     border-radius: 4px;
-    border: solid 1px #EC472F;
-    background-color: #EC472F;
+    border: solid 1px  #6B4FD9;
+    background-color:  #6B4FD9;
 }
 #zappar-placement-ui-2{
     display: none;
     position: absolute;
     left: calc(50% - 100px);
     bottom: 26vh;
-    font-family: Inter;
-    color: #fff;
+    font-family: InterFont;
+    color:  #efefef;
     border-radius: 4px;
-    border: solid 1px #EC472F;
-    background-color: #EC472F;
+    border: solid 1px  #6B4FD9;
+    background-color:  #6B4FD9;
 }
